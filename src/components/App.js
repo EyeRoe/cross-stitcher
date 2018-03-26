@@ -11,7 +11,7 @@ class App extends Component {
 
     this.state = {
       mousePressed: false,
-      color: '#fff'
+      color: '#000'
     };
 
     this.updateState = this.updateState.bind(this);

@@ -17,9 +17,9 @@ class Grid extends Component {
     for (let i=0; i <size; i++) {
       let innerTable = []
       for (let j=0; j < size; j++) {
-        innerTable.push(<td onMouseOver = { overCallback } onMouseDown = { clickCallback }>{}</td>);
+        innerTable.push(<td onMouseOver = { overCallback } onMouseDown = { clickCallback } key={j}></td>);
       }
-      table.push(<tr>{innerTable}</tr>);
+      table.push(<tr key={i}>{innerTable}</tr>);
     }
     return table;
   }
@@ -28,7 +28,9 @@ class Grid extends Component {
     return (
       <div className="App-grid" >
         <table>
-          {this.generateTableJSX(20)}
+          <tbody>
+            {this.generateTableJSX(20)}
+          </tbody>
         </table>
       </div>
     )
