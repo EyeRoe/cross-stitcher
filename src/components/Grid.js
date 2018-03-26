@@ -4,16 +4,20 @@ class Grid extends Component {
   generateTableJSX(size) {
     let table = []
 
-    let mouseOverCallback = (e) => {
+    let overCallback = (e) => {
       if (this.props.mousePressed) {
         e.target.style.background = this.props.color;
       }
     }
 
+    let clickCallback = (e) => {
+      e.target.style.background = this.props.color;
+    }
+
     for (let i=0; i <size; i++) {
       let innerTable = []
       for (let j=0; j < size; j++) {
-        innerTable.push(<td onMouseOver = { mouseOverCallback }>{}</td>);
+        innerTable.push(<td onMouseOver = { overCallback } onMouseDown = { clickCallback }>{}</td>);
       }
       table.push(<tr>{innerTable}</tr>);
     }
