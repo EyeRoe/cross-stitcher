@@ -1,18 +1,12 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { BlockPicker } from 'react-color';
-import ColorState from './ColorState';
 
-class ColorPalette extends ColorState {
-  handleChangeComplete = (color) => {
-    console.log(this.state.color)
-    this.setState({ color: color.hex });
-  };
-
+class ColorPalette extends Component {
   render() {
     return (
       <BlockPicker
-        color={ this.state.background }
-        onChangeComplete={ this.handleChangeComplete }
+        color={ this.props.color }
+        onChangeComplete={ this.props.handler }
       />
     );
   }

@@ -1,19 +1,19 @@
-import React from 'react';
-import ColorState from './ColorState'
+import React, {Component} from 'react';
 
-class Grid extends ColorState {
+class Grid extends Component {
   generateTableJSX(size) {
     let table = []
 
-    let callback = () => {
-      //this.background = ColorPalette.selectedColor;
-      console.log(this.state.color + "--" + this.background);
-    };
+    let mouseOverCallback = (e) => {
+      if (this.props.mousePressed) {
+        e.target.style.background = this.props.color;
+      }
+    }
 
     for (let i=0; i <size; i++) {
       let innerTable = []
       for (let j=0; j < size; j++) {
-        innerTable.push(<td onClick={callback}>{}</td>);
+        innerTable.push(<td onMouseOver = { mouseOverCallback }>{}</td>);
       }
       table.push(<tr>{innerTable}</tr>);
     }
@@ -22,7 +22,7 @@ class Grid extends ColorState {
 
   render() {
     return (
-      <div className="App-grid">
+      <div className="App-grid" >
         <table>
           {this.generateTableJSX(20)}
         </table>
