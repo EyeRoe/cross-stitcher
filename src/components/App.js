@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Link } from 'react-router-dom'
 import Header from './Header';
 import Grid from './Grid';
 import ColorPalette from './ColorPalette';
