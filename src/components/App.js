@@ -27,9 +27,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" onMouseDown={() => {this.updateMouseStatus(true)}} onMouseUp={() => {this.updateMouseStatus(false) }}>
         <Header text="Cross Stitcher" />
-        <div className='rowC' onMouseDown={() => {this.updateMouseStatus(true)}} onMouseUp={() => {this.updateMouseStatus(false) }}>
+        <div className='rowC' >
           <Grid 
             color = { this.state.color }
             mousePressed = { this.state.mousePressed }
