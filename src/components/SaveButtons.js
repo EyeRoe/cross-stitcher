@@ -5,10 +5,10 @@ class SaveButtons extends Component {
   render () {
     return (
       <div className="App-header">
-        <Button bsStyle="primary" bsSize="large">
+        <Button id="magicButton" bsStyle="default" bsSize="large">
           Print
         </Button>
-        <Button bsStyle="primary" bsSize="large">
+        <Button id="magicButton" bsStyle="default" bsSize="large">
           Import
         </Button>
       </div>
