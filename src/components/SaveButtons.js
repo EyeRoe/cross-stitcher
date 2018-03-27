@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap'
 
 class SaveButtons extends Component {
-  constructor()
+  constructor(props)
   {
-    super();
+    super(props);
 
     this.importGrid = this.importGrid.bind(this);
     this.exportGrid = this.exportGrid.bind(this);
@@ -18,6 +18,7 @@ class SaveButtons extends Component {
     * Extract variable to grid
     **/
     console.log("Import");
+    this.props.handlerImport()
   }
 
   exportGrid() {
@@ -26,8 +27,8 @@ class SaveButtons extends Component {
     * Generate grid into csv variable
     * Save variable to file
     **/
-    console.log(this.props.handlerExport())
     console.log("Export");
+    this.props.handlerExport()
   }
 
   render () {

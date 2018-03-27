@@ -16,8 +16,13 @@ class App extends Component {
       table: []
     };
 
+    // Setters
     this.updateColorState = this.updateColorState.bind(this);
     this.updateTableState = this.updateTableState.bind(this);
+
+    // import/export
+    this.exportCSVFromGrid = this.exportCSVFromGrid.bind(this);
+    this.importCSVToGrid = this.importCSVToGrid.bind(this);
   }
 
   updateMouseStatus (isClicked) {
@@ -32,7 +37,7 @@ class App extends Component {
     this.setState({ table: t });
   }
 
-  exportCSVFomGrid() {
+  exportCSVFromGrid() {
     console.log("exportCSVFromGrid");
   }
 
@@ -58,8 +63,8 @@ class App extends Component {
           />
         </div>
         <SaveButtons 
-            // handlerExport = { () => { this.state.grid.exportCSVFromGrid } }
-            // handlerImport = { this.state.grid.importCSVToGrid }
+            handlerExport = { this.exportCSVFromGrid }
+            handlerImport = { this.importCSVToGrid }
         />
       </div>
     );
