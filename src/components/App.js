@@ -39,10 +39,16 @@ class App extends Component {
 
   exportCSVFromGrid() {
     console.log("exportCSVFromGrid");
+    console.log(this.state.table)
+    //console.log(ReactDOM.findDOMNode(this.state.table[0]).style)
+    // Create and return CSV
   }
 
-  importCSVToGrid() {
+  importCSVToGrid(csv) {
     console.log("importCSVToGrid");
+    console.log(this.state.table)
+    console.log(csv)
+    // unpack csv into table styles
   }
 
   render() {

@@ -18,7 +18,8 @@ class SaveButtons extends Component {
     * Extract variable to grid
     **/
     console.log("Import");
-    this.props.handlerImport()
+    var csv = "banana"
+    this.props.handlerImport(csv)
   }
 
   exportGrid() {
