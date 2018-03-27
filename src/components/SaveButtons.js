@@ -11,10 +11,22 @@ class SaveButtons extends Component {
   }
 
   importGrid() {
+    /**
+    TODO: 
+    * Get a file explorer window to open a file. 
+    * Save file to variable
+    * Extract variable to grid
+    **/
     console.log("Import");
   }
 
   exportGrid() {
+    /**
+    TODO: 
+    * Generate grid into csv variable
+    * Save variable to file
+    **/
+    console.log(this.props.handlerExport())
     console.log("Export");
   }
 

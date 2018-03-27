@@ -1,7 +1,14 @@
 import React, {Component} from 'react';
 
 class Grid extends Component {
-  generateTableJSX(size) {
+  constructor(props) {
+    super(props);
+
+    // Setup grid
+    this.props.tableHandler(this.generateTableJSX())
+  }
+
+  generateTableJSX() {
     let table = []
 
     let overCallback = (e) => {
@@ -14,9 +21,9 @@ class Grid extends Component {
       e.target.style.background = this.props.color;
     }
 
-    for (let i=0; i <size; i++) {
+    for (let i=0; i < this.props.sizeOfGrid; i++) {
       let innerTable = []
-      for (let j=0; j < size; j++) {
+      for (let j=0; j < this.props.sizeOfGrid; j++) {
         innerTable.push(<td onMouseOver = { overCallback } onMouseDown = { clickCallback } key={j}></td>);
       }
       table.push(<tr key={i}>{innerTable}</tr>);
@@ -29,15 +36,11 @@ class Grid extends Component {
       <div className="App-grid" >
         <table>
           <tbody>
-            {this.generateTableJSX(20)}
+            { this.props.table }
           </tbody>
         </table>
       </div>
     )
-  }
-
-  setGridColor() {
-
   }
 }
 

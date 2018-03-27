@@ -11,18 +11,33 @@ class App extends Component {
 
     this.state = {
       mousePressed: false,
-      color: '#000'
+      color: '#000',
+      sizeOfGrid: 20,
+      table: []
     };
 
-    this.updateState = this.updateState.bind(this);
+    this.updateColorState = this.updateColorState.bind(this);
+    this.updateTableState = this.updateTableState.bind(this);
   }
 
   updateMouseStatus (isClicked) {
     this.setState({ mousePressed: isClicked});
   }
 
-  updateState(c) {
+  updateColorState(c) {
     this.setState({ color: c.hex });
+  }
+
+  updateTableState(t) {
+    this.setState({ table: t });
+  }
+
+  exportCSVFomGrid() {
+    console.log("exportCSVFromGrid");
+  }
+
+  importCSVToGrid() {
+    console.log("importCSVToGrid");
   }
 
   render() {
@@ -33,13 +48,19 @@ class App extends Component {
           <Grid 
             color = { this.state.color }
             mousePressed = { this.state.mousePressed }
+            sizeOfGrid = { this.state.sizeOfGrid }
+            tableHandler = { this.updateTableState }
+            table = { this.state.table }
           />
           <ColorPalette 
-            handler = { this.updateState } 
+            handler = { this.updateColorState } 
             color = { this.state.color }
           />
         </div>
-        <SaveButtons />
+        <SaveButtons 
+            // handlerExport = { () => { this.state.grid.exportCSVFromGrid } }
+            // handlerImport = { this.state.grid.importCSVToGrid }
+        />
       </div>
     );
   }
