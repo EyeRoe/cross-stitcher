@@ -19,10 +19,14 @@ h2{
 }
 
 .paletteButtons{
+  background-color: transparent;
   margin: 1em;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+}
+.trigger{
+  background-color: lime;
 }
 
 .App-header {

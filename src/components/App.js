@@ -29,8 +29,8 @@ class App extends Component {
   createColorPops = () => {
     var overlays = []
     for (let key in dmcColors) {
-      var trigger = (<OverlayTrigger key={key} trigger="click" placement="right" overlay={this.createPalette(dmcColors[key])}>
-        <Button>{key}</Button>
+      var trigger = (<OverlayTrigger key={key} trigger="click" rootClose placement="right" overlay={this.createPalette(dmcColors[key])}>
+        <Button >{key}</Button>
       </OverlayTrigger>)
       overlays.push(trigger)
     }
@@ -38,116 +38,16 @@ class App extends Component {
   }
   createPalette = (arr) => {
     var hexArray = []
-    arr.forEach(obj =>{
+
+    arr.forEach(obj => {
       hexArray.push(obj.Hex)
     })
-    console.log(this.state.color)
+
     return (
       <Popover id="popover-positioned-right" title="Popover right">
         <ColorPalette
           handler={this.updateColorState}
           colors={hexArray}
-        />
-      </Popover>
-    );
-  }
-
-  red = () => {
-    return (
-      <Popover id="popover-positioned-right" title="Popover right">
-        <ColorPalette
-          handler={this.updateColorState}
-          color={this.state.color}
-        />
-      </Popover>
-    );
-  }
-  orange = () => {
-    return (
-      <Popover id="popover-positioned-right" title="Popover right">
-        <ColorPalette
-          handler={this.updateColorState}
-          color={this.state.color}
-        />
-      </Popover>
-    );
-  }
-  yellow = () => {
-    return (
-      <Popover id="popover-positioned-right" title="Popover right">
-        <ColorPalette
-          handler={this.updateColorState}
-          color={this.state.color}
-        />
-      </Popover>
-    );
-  }
-  green = () => {
-    return (
-      <Popover id="popover-positioned-right" title="Popover right">
-        <ColorPalette
-          handler={this.updateColorState}
-          color={this.state.color}
-        />
-      </Popover>
-    );
-  }
-  blue = () => {
-    return (
-      <Popover id="popover-positioned-right" title="Popover right">
-        <ColorPalette
-          handler={this.updateColorState}
-          color={this.state.color}
-        />
-      </Popover>
-    );
-  }
-  purple = () => {
-    return (
-      <Popover id="popover-positioned-right" title="Popover right">
-        <ColorPalette
-          handler={this.updateColorState}
-          color={this.state.color}
-        />
-      </Popover>
-    );
-  }
-  pink = () => {
-    return (
-      <Popover id="popover-positioned-right" title="Popover right">
-        <ColorPalette
-          handler={this.updateColorState}
-          color={this.state.color}
-        />
-      </Popover>
-    );
-  }
-  brown = () => {
-    return (
-      <Popover id="popover-positioned-right" title="Popover right">
-        <ColorPalette
-          handler={this.updateColorState}
-          color={this.state.color}
-        />
-      </Popover>
-    );
-  }
-  light = () => {
-    return (
-      <Popover id="popover-positioned-right" title="Popover right">
-        <ColorPalette
-          handler={this.updateColorState}
-          color={this.state.color}
-        />
-      </Popover>
-    );
-  }
-  dark = () => {
-    return (
-      <Popover id="popover-positioned-right" title="Popover right">
-        <ColorPalette
-          handler={this.updateColorState}
-          color={this.state.color}
         />
       </Popover>
     );
@@ -196,36 +96,7 @@ class App extends Component {
           <div className="paletteButtons">
             {
               this.createColorPops()
-              /* <OverlayTrigger trigger="click" placement="right" overlay={this.red()}>
-              <Button>RED</Button>
-            </OverlayTrigger>
-            <OverlayTrigger trigger="click" placement="right" overlay={this.red()}>
-              <Button>ORANGE</Button>
-            </OverlayTrigger>
-            <OverlayTrigger trigger="click" placement="right" overlay={this.red()}>
-              <Button>YELLOW</Button>
-            </OverlayTrigger>
-            <OverlayTrigger trigger="click" placement="right" overlay={this.red()}>
-              <Button>GREEN</Button>
-            </OverlayTrigger>
-            <OverlayTrigger trigger="click" placement="right" overlay={this.red()}>
-              <Button>BLUE</Button>
-            </OverlayTrigger>
-            <OverlayTrigger trigger="click" placement="right" overlay={this.red()}>
-              <Button>PURPLE</Button>
-            </OverlayTrigger>
-            <OverlayTrigger trigger="click" placement="right" overlay={this.red()}>
-              <Button>PINK</Button>
-            </OverlayTrigger>
-            <OverlayTrigger trigger="click" placement="right" overlay={this.red()}>
-              <Button>BROWN</Button>
-            </OverlayTrigger>
-            <OverlayTrigger trigger="click" placement="right" overlay={this.red()}>
-              <Button>LIGHT</Button>
-            </OverlayTrigger>
-            <OverlayTrigger trigger="click" placement="right" overlay={this.red()}>
-              <Button>DARK</Button>
-            </OverlayTrigger> */}
+            }
           </div>
         </div>
         <SaveButtons
