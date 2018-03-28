@@ -1,4 +1,4 @@
-{ red: 
+var colors = { red: 
   [ { DMC: 3712, Name: 'Salmon Medium', Hex: '#F18787' },
     { DMC: 3328, Name: 'Salmon Dark', Hex: '#E36D6D' },
     { DMC: 347, Name: 'Salmon Very Dark', Hex: '#BF2D2D' },
