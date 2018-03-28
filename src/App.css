@@ -18,6 +18,13 @@ h2{
   background-color: #9BB4BE;
 }
 
+.paletteButtons{
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
 .App-header {
   height: 130px;
   padding: 5px;

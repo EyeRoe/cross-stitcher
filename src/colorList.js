@@ -389,3 +389,5 @@ var colors = { red:
     { DMC: 413, Name: 'Pewter Gray Dark', Hex: '#565656' },
     { DMC: 3799, Name: 'Pewter Gray Vy Dk', Hex: '#424242' },
     { DMC: 310, Name: 'Black', Hex: '#0' } ] }
+
+    module.exports = colors;
