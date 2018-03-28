@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom'
 import Header from './Header';
 import Grid from './Grid';
 import ColorPalette from './ColorPalette';
@@ -12,13 +13,11 @@ class App extends Component {
     this.state = {
       mousePressed: false,
       color: '#000',
-      sizeOfGrid: 20,
-      table: []
+      sizeOfGrid: 20
     };
 
     // Setters
     this.updateColorState = this.updateColorState.bind(this);
-    this.updateTableState = this.updateTableState.bind(this);
 
     // import/export
     this.exportCSVFromGrid = this.exportCSVFromGrid.bind(this);
@@ -33,15 +32,20 @@ class App extends Component {
     this.setState({ color: c.hex });
   }
 
-  updateTableState(t) {
-    this.setState({ table: t });
-  }
-
   exportCSVFromGrid() {
-    console.log("exportCSVFromGrid");
-    console.log(this.state.table)
-    //console.log(ReactDOM.findDOMNode(this.state.table[0]).style)
-    // Create and return CSV
+    let rows = ReactDOM.findDOMNode(this.refs.GridRef).getElementsByTagName("tr")
+    let csvData = []
+
+    for (let i=0; i < this.state.sizeOfGrid; i++)
+    {
+      csvData.push([])
+      for (let j=0; j < this.state.sizeOfGrid; j++)
+      {
+        csvData[i].push(rgb2hex(rows[i].cells[j].style.backgroundColor));
+      }
+    }
+
+    return csvData;
   }
 
   importCSVToGrid(csv) {
@@ -56,12 +60,10 @@ class App extends Component {
       <div className="App" onMouseDown={() => {this.updateMouseStatus(true)}} onMouseUp={() => {this.updateMouseStatus(false) }}>
         <Header text="Cross Stitcher" />
         <div className='rowC' >
-          <Grid 
+          <Grid ref={"GridRef"}
             color = { this.state.color }
             mousePressed = { this.state.mousePressed }
             sizeOfGrid = { this.state.sizeOfGrid }
-            tableHandler = { this.updateTableState }
-            table = { this.state.table }
           />
           <ColorPalette 
             handler = { this.updateColorState } 
@@ -74,6 +76,20 @@ class App extends Component {
         />
       </div>
     );
+  }
+}
+
+function rgb2hex(rgb) {
+  if (rgb === "") {
+    return "#FFFFFF";
+  } else if (rgb.search("rgb") === -1 ) {
+    return rgb;
+  } else {
+    rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);
+    function hex(x) {
+          return ("0" + parseInt(x,10).toString(16)).slice(-2);
+    }
+    return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]); 
   }
 }
 

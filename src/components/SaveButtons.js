@@ -10,34 +10,27 @@ class SaveButtons extends Component {
     this.exportGrid = this.exportGrid.bind(this);
   }
 
-  importGrid() {
-    /**
-    TODO: 
-    * Get a file explorer window to open a file. 
-    * Save file to variable
-    * Extract variable to grid
-    **/
-    console.log("Import");
-    var csv = "banana"
-    this.props.handlerImport(csv)
-  }
-
   exportGrid() {
-    /**
-    TODO: 
-    * Generate grid into csv variable
-    * Save variable to file
-    **/
-    console.log("Export");
-    this.props.handlerExport()
+    let csvVar = this.props.handlerExport()
+
+    let csvContent = "data:text/csv;charset=utf-8,";
+    csvVar.forEach(function(rowArray){
+      let row = rowArray.join(",");
+      csvContent += row + "\r\n";
+    }); 
+
+    var csvFile = encodeURI(csvContent);
+
+    // Hack for naming files
+		var link = document.createElement('a');
+		link.download = "cross-stitch.csv";
+		link.href = 'data:,' + csvFile;
+		link.click();
   }
 
   render () {
     return (
       <div className="App-header">
-        <Button id="magicButton" bsStyle="default" bsSize="large" onClick={ this.importGrid }>
-          Import
-        </Button>
         <Button id="magicButton" bsStyle="default" bsSize="large" onClick={ this.exportGrid }>
           Export
         </Button>

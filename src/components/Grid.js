@@ -1,13 +1,6 @@
 import React, {Component} from 'react';
 
 class Grid extends Component {
-  constructor(props) {
-    super(props);
-
-    // Setup grid
-    this.props.tableHandler(this.generateTableJSX())
-  }
-
   generateTableJSX() {
     let table = []
 
@@ -28,7 +21,7 @@ class Grid extends Component {
       }
       table.push(<tr key={i}>{innerTable}</tr>);
     }
-    return table;
+    return table
   }
 
   render() {
@@ -36,7 +29,7 @@ class Grid extends Component {
       <div className="App-grid" >
         <table>
           <tbody>
-            { this.props.table }
+            { this.generateTableJSX() }
           </tbody>
         </table>
       </div>
