@@ -6,7 +6,6 @@ class SaveButtons extends Component {
   {
     super(props);
 
-    this.importGrid = this.importGrid.bind(this);
     this.exportGrid = this.exportGrid.bind(this);
   }
 
