@@ -15,8 +15,8 @@ class App extends Component {
 
     this.state = {
       mousePressed: false,
-      color: '#0',
-      currentColor: { DMC: 310, Name: 'Black', Hex: '#0' },
+      color: '#000000',
+      currentColor: { DMC: 310, Name: 'Black', Hex: '#000000' },
       sizeOfGrid: 20
     };
 
@@ -45,7 +45,7 @@ class App extends Component {
     })
 
     return (
-      <Popover style={{backgroundColor: "gray"}} id="popover-positioned-right" title={"Current Color: " + this.state.currentColor.DMC + " - " + this.state.currentColor.Name}>
+      <Popover style={{backgroundColor: "gray", width: "200px"}} id="popover-positioned-right" title={"Current Color: " + this.state.currentColor.DMC + " - " + this.state.currentColor.Name}>
         <ColorPalette
           handler={this.updateColorState}
           colors={hexArray}
