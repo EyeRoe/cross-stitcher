@@ -15,7 +15,8 @@ class App extends Component {
 
     this.state = {
       mousePressed: false,
-      color: '#000',
+      color: '#0',
+      currentColor: { DMC: 310, Name: 'Black', Hex: '#0' },
       sizeOfGrid: 20
     };
 
@@ -30,7 +31,7 @@ class App extends Component {
     var overlays = []
     for (let key in dmcColors) {
       var trigger = (<OverlayTrigger key={key} trigger="click" rootClose placement="right" overlay={this.createPalette(dmcColors[key])}>
-        <Button >{key}</Button>
+        <Button style={{ backgroundColor: dmcColors[key][0].Hex }}>{key}</Button>
       </OverlayTrigger>)
       overlays.push(trigger)
     }
@@ -44,10 +45,11 @@ class App extends Component {
     })
 
     return (
-      <Popover id="popover-positioned-right" title="Popover right">
+      <Popover style={{backgroundColor: "gray"}} id="popover-positioned-right" title={"Current Color: " + this.state.currentColor.DMC + " - " + this.state.currentColor.Name}>
         <ColorPalette
           handler={this.updateColorState}
           colors={hexArray}
+          color={this.state.color}
         />
       </Popover>
     );
@@ -58,7 +60,16 @@ class App extends Component {
   }
 
   updateColorState(c) {
-    this.setState({ color: c.hex });
+    // this.setState({ color: c.hex });
+    for (let key in dmcColors) {
+      var currentColor = dmcColors[key].find(e => {
+        return e.Hex.toLowerCase() === c.hex
+      })
+      console.log(currentColor)
+      if (currentColor) {
+        this.setState({ color: c.hex, currentColor: currentColor });
+      }
+    }
   }
 
   exportCSVFromGrid() {

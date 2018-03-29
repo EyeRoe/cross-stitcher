@@ -6,6 +6,7 @@ class ColorPalette extends Component {
     return (
       <BlockPicker
         colors={ this.props.colors }
+        color= {this.props.color}
         onChangeComplete={ this.props.handler }
       />
     );
