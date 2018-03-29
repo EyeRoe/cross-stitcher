@@ -27,8 +27,8 @@ class SaveButtons extends Component {
   }
 
   importGrid() {
-    var csvArr = csvStr.split("\n").map(function(row){return row.split(",");});
-    this.props.importCSVToGrid(csvArr)
+    // var csvArr = csvStr.split("\n").map(function(row){return row.split(",");});
+    // this.props.importCSVToGrid(csvArr)
   }
 
   render() {
