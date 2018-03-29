@@ -8,18 +8,15 @@ import '../App.css';
 import { Popover, OverlayTrigger, Button } from 'react-bootstrap'
 import dmcColors from '../colorList'
 
-import axios from 'axios'
-
-const ENDPOINT = 'http://localhost:3000/gallery'
-
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       mousePressed: false,
-      color: '#000',
-      sizeOfGrid: 40
+      color: '#000000',
+      currentColor: { DMC: 310, Name: 'Black', Hex: '#000000' },
+      sizeOfGrid: 20
     };
 
     // Setters
@@ -33,7 +30,7 @@ class App extends Component {
     var overlays = []
     for (let key in dmcColors) {
       var trigger = (<OverlayTrigger key={key} trigger="click" rootClose placement="right" overlay={this.createPalette(dmcColors[key])}>
-        <Button >{key}</Button>
+        <Button style={{ backgroundColor: dmcColors[key][0].Hex }}>{key}</Button>
       </OverlayTrigger>)
       overlays.push(trigger)
     }
@@ -47,10 +44,11 @@ class App extends Component {
     })
 
     return (
-      <Popover id="popover-positioned-right" title="Popover right">
+      <Popover style={{backgroundColor: "gray", width: "200px"}} id="popover-positioned-right" title={"Current Color: " + this.state.currentColor.DMC + " - " + this.state.currentColor.Name}>
         <ColorPalette
           handler={this.updateColorState}
           colors={hexArray}
+          color={this.state.color}
         />
       </Popover>
     );
@@ -61,7 +59,16 @@ class App extends Component {
   }
 
   updateColorState(c) {
-    this.setState({ color: c.hex });
+    // this.setState({ color: c.hex });
+    for (let key in dmcColors) {
+      var currentColor = dmcColors[key].find(e => {
+        return e.Hex.toLowerCase() === c.hex
+      })
+      console.log(currentColor)
+      if (currentColor) {
+        this.setState({ color: c.hex, currentColor: currentColor });
+      }
+    }
   }
 
   exportCSVFromGrid() {
@@ -74,13 +81,6 @@ class App extends Component {
         csvData[i].push(rgb2hex(rows[i].cells[j].style.backgroundColor));
       }
     }
-    // TODO move this to an upload method
-    axios.post(ENDPOINT, {csvData}).then(res => {
-      console.log('posted')
-    })
-    .catch(err => {
-      console.error(err)
-    })
     return csvData;
   }
 
