@@ -26,6 +26,11 @@ class SaveButtons extends Component {
     link.click();
   }
 
+  importGrid() {
+    var csvArr = csvStr.split("\n").map(function(row){return row.split(",");});
+    this.props.importCSVToGrid(csvArr)
+  }
+
   render() {
     return (
       <div className="App-header">

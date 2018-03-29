@@ -85,6 +85,11 @@ class App extends Component {
   }
 
   importCSVToGrid(csv) {
+    for(let i = 0; i < this.state.sizeOfGrid; i++) {
+      for(let j = 0; < this.state.sizeOfGrid; j++)
+       rows[i].cells[j].style.backgroundColor = csv[i][j]
+      }
+     }
     console.log("importCSVToGrid");
     console.log(this.state.table)
     console.log(csv)
