@@ -60,13 +60,13 @@ table {
 }
 
 td {
-  border: 1px solid black;
-  height: 25px;
-  width: 25px;
-  flex:1;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+ border: 1px solid grey;
+ height: 10px;
+ width: 10px;
+ flex:1;
+ -moz-user-select: none;
+ -webkit-user-select: none;
+ -ms-user-select: none;
 }
 
 .rowC {
