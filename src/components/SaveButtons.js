@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap'
+import { Button, FormControl } from 'react-bootstrap'
 
 class SaveButtons extends Component {
   constructor(props)
@@ -27,12 +27,22 @@ class SaveButtons extends Component {
 		link.click();
   }
 
+  importGrid() {
+
+  }
+
+
+
+
   render () {
     return (
       <div className="App-header">
         <Button id="magicButton" bsStyle="default" bsSize="large" onClick={ this.exportGrid }>
-          Export
+          Save
         </Button>
+        <FormControl
+          type="file"
+        />
       </div>
     )
   }
