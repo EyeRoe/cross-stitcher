@@ -16,7 +16,7 @@ class App extends Component {
       mousePressed: false,
       color: '#000000',
       currentColor: { DMC: 310, Name: 'Black', Hex: '#000000' },
-      sizeOfGrid: 20
+      sizeOfGrid: 50
     };
 
     // Setters
