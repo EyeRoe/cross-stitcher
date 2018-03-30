@@ -6,6 +6,7 @@ class SaveButtons extends Component {
     super(props);
 
     this.exportGrid = this.exportGrid.bind(this);
+    this.importGrid = this.importGrid.bind(this);
   }
 
   exportGrid() {
@@ -26,6 +27,7 @@ class SaveButtons extends Component {
     link.click();
   }
 
+<<<<<<< HEAD
   importGrid() {
     // var csvArr = csvStr.split("\n").map(function(row){return row.split(",");});
     // this.props.importCSVToGrid(csvArr)
@@ -35,18 +37,36 @@ class SaveButtons extends Component {
     var reader = new FileReader()
     reader.onload = function () {
       console.log(reader.result)
+=======
+  importGrid(e) {
+    var callback = this.props.handlerImport;
+    var reader = new FileReader()
+    reader.onload = function() {
+>>>>>>> a1099e295c7347aede163622f67345a3824f563a
       const base64 = reader.result.split(',')[1]
-      console.log(atob(base64))
+      const csvFile = atob(base64)
+      const csvText = csvFile.substr(csvFile.indexOf('#')+1)
+      var csvArr = csvText.split("\n").map(function(row){return row.split(",");});
+      csvArr.pop()
+      callback(csvArr)
     }
     reader.readAsDataURL(e.target.files[0])
   }
-
+  
   render() {
     return (
       <div className="App-header">
         <Button id="magicButton" bsStyle="default" bsSize="large" onClick={this.exportGrid}>
           Export
         </Button>
+<<<<<<< HEAD
+=======
+        <FormControl
+          type="file"
+          accept=".csv"
+          onChange={this.importGrid}
+        />
+>>>>>>> a1099e295c7347aede163622f67345a3824f563a
         <Button id="magicButton" bsStyle="default" bsSize="large" onClick={function refreshPage() {
           window.location.reload();
         }}>

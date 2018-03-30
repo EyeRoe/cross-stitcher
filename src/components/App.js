@@ -85,15 +85,13 @@ class App extends Component {
   }
 
   importCSVToGrid(csv) {
-    // for(let i = 0; i < this.state.sizeOfGrid; i++) {
-    //   for(let j = 0; < this.state.sizeOfGrid; j++)
-    //    rows[i].cells[j].style.backgroundColor = csv[i][j]
-    //   }
-    //  }
-    console.log("importCSVToGrid");
-    console.log(this.state.table)
-    console.log(csv)
-    // unpack csv into table styles
+    let rows = ReactDOM.findDOMNode(this.refs.GridRef).getElementsByTagName("tr")
+    let rowLen = this.state.sizeOfGrid > csv.length ? csv.length : this.state.sizeOfGrid;
+    for(let i = 0; i < rowLen; i++) {
+      for(let j = 0; j < rowLen; j++) {
+        rows[i].cells[j].style.backgroundColor = csv[i][j]
+      }
+    }
   }
 
 
