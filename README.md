@@ -17,8 +17,7 @@ Patterns can be saved to your desktop and then later re-uploaded to edit or view
 The available grid is 50x50 which is equivilant to 5" of 16-count Aida fabric. To create a pattern larger than 5", split your projects into the traditional quadrants. 
 
 ### Directions:
-![Example pattern of pikachu]
-(/src/assets/pikachuPattern.png)
+![Example pattern of pikachu](/src/assets/pikachuPattern.png)
 
 * You can begin drawing right away with the defualt color of black. 
 
