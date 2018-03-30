@@ -34,9 +34,9 @@ class SaveButtons extends Component {
   handleFiles(e) {
     var reader = new FileReader()
     reader.onload = function() {
-      console.log(reader.result)
       const base64 = reader.result.split(',')[1]
-      console.log(atob(base64))
+      const csv = atob(base64)
+      console.log(csv)
     }
     reader.readAsDataURL(e.target.files[0])
   }
