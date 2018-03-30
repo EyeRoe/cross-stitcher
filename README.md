@@ -6,11 +6,11 @@ This is a pattern making website intended for cross-stitch
 
 ### Description:
 
-![Default view of the website] (./assets/blankExample.png)
+![Default view of the website] (/assets/blankExample.png)
 
 The palette has 450 available colors that mimic the actual colors of DMC thread. The DMC thread number and color name are visible when a color is selected. 
 
-![Website with one of the color palettes open] (./assets/openPaletteExample.png)
+![Website with one of the color palettes open] (/assets/openPaletteExample.png)
 
 Patterns can be saved to your desktop and then later re-uploaded to edit or view. 
 
@@ -35,8 +35,11 @@ The available grid is 50x50 which is equivilant to 5" of 16-count Aida fabric. T
 ### Technologies Used:
 
 *React
+
 *React-Color
+
 *React-CSV
+
 *JSX
 
 ### To-Do:
