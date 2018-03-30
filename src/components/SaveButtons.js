@@ -6,6 +6,7 @@ class SaveButtons extends Component {
     super(props);
 
     this.exportGrid = this.exportGrid.bind(this);
+    this.importGrid = this.importGrid.bind(this);
   }
 
   exportGrid() {
@@ -26,21 +27,20 @@ class SaveButtons extends Component {
     link.click();
   }
 
-  importGrid() {
-    // var csvArr = csvStr.split("\n").map(function(row){return row.split(",");});
-    // this.props.importCSVToGrid(csvArr)
-  }
-  
-  handleFiles(e) {
+  importGrid(e) {
+    var callback = this.props.handlerImport;
     var reader = new FileReader()
     reader.onload = function() {
       const base64 = reader.result.split(',')[1]
-      const csv = atob(base64)
-      console.log(csv)
+      const csvFile = atob(base64)
+      const csvText = csvFile.substr(csvFile.indexOf('#')+1)
+      var csvArr = csvText.split("\n").map(function(row){return row.split(",");});
+      csvArr.pop()
+      callback(csvArr)
     }
     reader.readAsDataURL(e.target.files[0])
   }
-
+  
   render() {
     return (
       <div className="App-header">
@@ -50,7 +50,7 @@ class SaveButtons extends Component {
         <FormControl
           type="file"
           accept=".csv"
-          onChange={this.handleFiles}
+          onChange={this.importGrid}
         />
         <Button id="magicButton" bsStyle="default" bsSize="large" onClick={function refreshPage() {
           window.location.reload();
