@@ -1,4 +1,7 @@
-html, body, #root{
+html, body{
+  height: 100%;
+}
+#root{
   height: 100%;
 }
 
@@ -38,14 +41,16 @@ h2{
 }
 
 .App-header {
-  height: 115px;
   padding: 2px;
   color: white;
   display: flex;
   justify-content: center;
 }
 .Hannah{
-  color: green;
+  color: transparent;
+  margin-top: 25px;
+  margin-left: 2em;
+  margin-right: -3.75em;
 }
 
 .App-grid {

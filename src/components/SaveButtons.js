@@ -30,24 +30,25 @@ class SaveButtons extends Component {
   importGrid(e) {
     var callback = this.props.handlerImport;
     var reader = new FileReader()
-    reader.onload = function() {
+    reader.onload = function () {
       const base64 = reader.result.split(',')[1]
       const csvFile = atob(base64)
-      const csvText = csvFile.substr(csvFile.indexOf('#')+1)
-      var csvArr = csvText.split("\n").map(function(row){return row.split(",");});
+      const csvText = csvFile.substr(csvFile.indexOf('#') + 1)
+      var csvArr = csvText.split("\n").map(function (row) { return row.split(","); });
       csvArr.pop()
       callback(csvArr)
     }
     reader.readAsDataURL(e.target.files[0])
   }
-  
+
   render() {
     return (
       <div className="App-header">
         <Button id="magicButton" bsStyle="default" bsSize="large" onClick={this.exportGrid}>
-          Export
+          Save Design
         </Button>
         <FormControl
+          className="Hannah"
           type="file"
           accept=".csv"
           onChange={this.importGrid}
@@ -57,12 +58,6 @@ class SaveButtons extends Component {
         }}>
           Erase Design
         </Button>
-        <FormControl
-          className="Hannnah"
-          type="file"
-          accept=".csv"
-          onChange={this.handleFiles}
-        />
       </div>
     )
   }
