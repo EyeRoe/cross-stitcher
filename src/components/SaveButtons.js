@@ -30,10 +30,10 @@ class SaveButtons extends Component {
     // var csvArr = csvStr.split("\n").map(function(row){return row.split(",");});
     // this.props.importCSVToGrid(csvArr)
   }
-  
+
   handleFiles(e) {
     var reader = new FileReader()
-    reader.onload = function() {
+    reader.onload = function () {
       console.log(reader.result)
       const base64 = reader.result.split(',')[1]
       console.log(atob(base64))
@@ -47,16 +47,17 @@ class SaveButtons extends Component {
         <Button id="magicButton" bsStyle="default" bsSize="large" onClick={this.exportGrid}>
           Export
         </Button>
-        <FormControl
-          type="file"
-          accept=".csv"
-          onChange={this.handleFiles}
-        />
         <Button id="magicButton" bsStyle="default" bsSize="large" onClick={function refreshPage() {
           window.location.reload();
         }}>
           Erase Design
         </Button>
+        <FormControl
+          className="Hannnah"
+          type="file"
+          accept=".csv"
+          onChange={this.handleFiles}
+        />
       </div>
     )
   }

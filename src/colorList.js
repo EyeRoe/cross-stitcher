@@ -419,7 +419,7 @@ var colors = {
     { DMC: 840, Name: 'Beige Brown Med', Hex: '#9A7C5C' },
     { DMC: 839, Name: 'Beige Brown Dk', Hex: '#675541' },
     { DMC: 838, Name: 'Beige Brown Vy Dk', Hex: '#594937' }],
-  Lt:
+  Light:
     [{ DMC: 168, Name: 'Pewter Vy Lt', Hex: '#D1D1D1' },
     { DMC: 677, Name: 'Old Gold Vy Lt', Hex: '#F5ECCB' },
     { DMC: 746, Name: 'Off White', Hex: '#FCFCEE' },
@@ -443,7 +443,7 @@ var colors = {
     { DMC: 415, Name: 'Pearl Gray', Hex: '#D3D3D6' },
     { DMC: 712, Name: 'Cream', Hex: '#FFFBEF' },
     ],
-  Dk:
+  Dark:
     [{ DMC: 310, Name: 'Black', Hex: '#000000' },
     { DMC: 3371, Name: 'Black Brown', Hex: '#1E1108' },
     { DMC: 642, Name: 'Beige Gray Dk', Hex: '#A49878' },
