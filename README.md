@@ -18,7 +18,7 @@ The available grid is 50x50 which is equivilant to 5" of 16-count Aida fabric. T
 
 ### Directions:
 ![Example pattern of pikachu]
-(src/assets/pikachuPattern.png)
+(/src/assets/pikachuPattern.png)
 
 * You can begin drawing right away with the defualt color of black. 
 
